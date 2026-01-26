@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learn CFOP | OLL Trainer</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/loader.css" />
+</head>
+<body>
+  <div id="page-loader" class="page-loader is-active" role="status" aria-live="polite" aria-label="Loading page">
+    <div class="loader-card">
+      <div class="loader-visual">
+        <svg viewBox="0 0 60 60" stroke="#6D7582" stroke-linejoin="round" aria-hidden="true">
+          <g id="loader-cube" fill="#fff">
+            <path id="loader-base"></path>
+            <path id="loader-lid"></path>
+          </g>
+        </svg>
+      </div>
+      <div class="loader-text">
+        <div>Loading the trainer…</div>
+        <div class="loader-sub">Switching faces and setting stickers.</div>
+      </div>
+    </div>
+  </div>
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Learn CFOP</span>
+      </div>
+      <ul class="nav-links">
+        <li><a data-nav-link href="index.html">Home</a></li>
+        <li><a data-nav-link href="cross.html">Cross</a></li>
+        <li><a data-nav-link href="f2l.html">F2L</a></li>
+        <li><a data-nav-link href="oll.html">OLL</a></li>
+        <li><a data-nav-link href="pll.html">PLL</a></li>
+        <li><a data-nav-link href="algorithm.html">Algorithm</a></li>
+        <li><a data-nav-link href="timer.html">Timer</a></li>
+      </ul>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+        <span aria-hidden="true">☀︎</span>
+        <span data-theme-label>Dark mode</span>
+      </button>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <section class="oll-layout surface-card">
+      <div>
+        <p class="lead">Paint the stickers that are yellow on your cube. The center tile stays yellow.</p>
+        <h1>OLL trainer</h1>
+        <p class="lead">Click tiles to toggle grey/yellow. The outer ring follows the order: north (left→right), west (top→bottom), east (top→bottom), south (left→right).</p>
+      </div>
+
+      <div id="oll-board" class="oll-board" aria-label="Top face with surrounding edges"></div>
+
+      <div class="oll-controls">
+        <button class="btn btn-primary" type="button" id="search-btn">Search for solution</button>
+        <button class="btn btn-ghost" type="button" id="reset-btn">Reset pattern</button>
+      </div>
+
+      <div class="result" aria-live="polite">
+        <div class="status" id="status">Waiting for your pattern…</div>
+        <div id="match"></div>
+      </div>
+
+    </section>
+
+    <section class="surface-card f2l-animation" id="animation-section" style="display:none; margin-top: 20px;">
+      <div class="f2l-intro">
+        <h3>Solution Animation</h3>
+        <p class="lead">Visualize the moves on a virtual cube.</p>
+      </div>
+      <div class="lab-grid" style="justify-content: center;">
+        <div class="board-wrap">
+          <div class="scene">
+            <div class="cube" id="anim-cube">
+              <!-- Full 6-sided cube for animation -->
+              <div class="cube-face face-u"></div>
+              <div class="cube-face face-f"></div>
+              <div class="cube-face face-r"></div>
+              <div class="cube-face face-d"></div>
+              <div class="cube-face face-l"></div>
+              <div class="cube-face face-b"></div>
+            </div>
+          </div>
+        </div>
+        <div class="control-stack">
+           <div class="control-group">
+             <div class="control-title">Controls</div>
+             <button class="btn btn-primary" id="anim-replay">Replay Solution</button>
+             <div id="anim-steps" class="solution-moves" style="margin-top:10px;"></div>
+           </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/site.js" defer></script>
+  <script src="js/oll.js" defer></script>
+  <script src="js/f2l-animation.js" defer></script>
+</body>
+</html>

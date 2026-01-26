@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learn CFOP | F2L Entry</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/loader.css" />
+  <style>
+    .entry-controls {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .entry-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+    }
+    .entry-input {
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inconsolata', monospace;
+      font-size: 16px;
+    }
+    .case-list {
+      margin-top: 20px;
+      max-height: 300px;
+      overflow-y: auto;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px;
+    }
+    .case-item {
+      padding: 8px;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .case-item:last-child { border-bottom: none; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Learn CFOP - Data Entry</span>
+      </div>
+      <ul class="nav-links">
+        <li><a data-nav-link href="f2l.html">Back to F2L</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <section class="surface-card f2l-lab">
+      <div class="f2l-intro">
+        <h1>F2L Case Entry</h1>
+        <p class="lead">Select a case on the cube, enter the solution, and add it to the list. Download the JSON when done.</p>
+        <div class="status" id="f2l-status">Select a corner and an edge to begin.</div>
+      </div>
+
+      <div class="lab-grid">
+        <div class="board-wrap">
+          <div class="scene">
+            <div class="cube" id="cube">
+              <div class="cube-face face-u"></div>
+              <div class="cube-face face-f"></div>
+              <div class="cube-face face-r"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-stack">
+          <div class="control-group">
+            <div class="control-title">Corner (UFR or DFR)</div>
+            <button class="chip" type="button" id="corner-ori">Twist: 0</button>
+          </div>
+          <div class="control-group">
+            <div class="control-title">Edge</div>
+            <button class="chip" type="button" id="edge-ori">Flip: 0</button>
+          </div>
+          
+          <div class="entry-controls">
+            <div class="control-title">Solution Algorithm</div>
+            <input type="text" id="alg-input" class="entry-input" placeholder="e.g. R U R' U'" />
+            
+            <div class="control-title">Case Name (Optional)</div>
+            <input type="text" id="name-input" class="entry-input" placeholder="e.g. Basic Insert" />
+
+            <div class="button-row">
+              <button class="btn btn-primary" type="button" id="add-case">Add Case</button>
+              <button class="btn btn-ghost" type="button" id="f2l-reset">Reset Cube</button>
+            </div>
+          </div>
+
+          <div class="entry-controls">
+            <div class="control-title">Collected Cases (<span id="case-count">0</span>)</div>
+            <div class="case-list" id="case-list"></div>
+            <button class="btn btn-primary" type="button" id="download-json">Download f2l_cases.json</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/site.js"></script>
+  <script src="js/f2l_entry.js"></script>
+</body>
+</html>

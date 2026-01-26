@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFOP Solver Demo</title>
+    <link rel="manifest" href="manifest.json" />
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        pre { background: #f0f0f0; padding: 10px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Rubik's Cube CFOP Solver</h1>
+    <p>Using library: <code>rubiks-cube-solver</code></p>
+    
+    <div id="output">Initializing...</div>
+
+    <!-- 
+        The library is available via CDN. 
+        It uses a UMD wrapper, so it exposes 'rubiksCubeSolver' to the global scope.
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/rubiks-cube-solver@1.2.0/lib/index.es6.js"></script>
+    
+    <script>
+        if (typeof rubiksCubeSolver === 'undefined') {
+            document.getElementById('output').innerHTML = '<p style="color:red">Failed to load the solver library.</p>';
+        } else {
+            // Example state: 
+            // front, right, up, down, left, back
+            // colors: f, r, u, d, l, b
+            let cubeState = [
+                'flulfbddr', // front
+                'rudrruddl', // right
+                'dbbburrfb', // up
+                'llffdrubf', // down
+                'rludlubrf', // left
+                'lubfbfudl' // back
+            ].join('');
+
+            document.getElementById('output').innerHTML = '<p>Solving cube state: ' + cubeState + '</p>';
+
+            try {
+                // Solve using CFOP (Fridrich Method)
+                // partitioned: true returns the solution broken down by steps
+                let solution = rubiksCubeSolver(cubeState, { partitioned: true });
+                
+                let html = '<h2>Solution</h2>';
+                
+                html += '<h3>Cross</h3>';
+                html += '<pre>' + solution.cross.join(' ') + '</pre>';
+                
+                html += '<h3>F2L</h3>';
+                html += '<pre>' + solution.f2l.join('\n') + '</pre>';
+                
+                html += '<h3>OLL</h3>';
+                html += '<pre>' + solution.oll + '</pre>';
+                
+                html += '<h3>PLL</h3>';
+                html += '<pre>' + solution.pll + '</pre>';
+                
+                document.getElementById('output').innerHTML += html;
+                
+            } catch (e) {
+                console.error(e);
+                document.getElementById('output').innerHTML += '<p style="color:red">Error solving cube: ' + e.message + '</p>';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learn CFOP | Full Solver</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/loader.css" />
+  <style>
+    .solver-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 20px;
+    }
+    @media (max-width: 900px) {
+      .solver-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+    .palette {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .palette-color {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: transform 0.1s;
+    }
+    .palette-color.active {
+      transform: scale(1.1);
+      border-color: var(--text);
+      box-shadow: 0 0 0 2px var(--bg);
+    }
+    .palette-color.white { background: #ffffff; border: 1px solid #ccc; }
+    .palette-color.yellow { background: #facc15; }
+    .palette-color.green { background: #22c55e; }
+    .palette-color.blue { background: #3b82f6; }
+    .palette-color.red { background: #ef4444; }
+    .palette-color.orange { background: #f97316; }
+
+    .solution-section {
+      margin-top: 20px;
+      padding: 15px;
+      background: var(--surface);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    .solution-step {
+      margin-bottom: 15px;
+    }
+    .solution-step h4 {
+      margin: 0 0 5px 0;
+      color: var(--muted);
+      font-size: 0.9em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .solution-moves {
+      font-family: monospace;
+      font-size: 1.1em;
+      font-weight: 600;
+    }
+    .case-name {
+      display: inline-block;
+      padding: 2px 8px;
+      background: var(--bg);
+      border-radius: 4px;
+      font-size: 0.8em;
+      margin-left: 10px;
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Learn CFOP - Full Solver</span>
+      </div>
+      <ul class="nav-links">
+        <li><a data-nav-link href="index.html">Home</a></li>
+        <li><a data-nav-link href="cross.html">Cross</a></li>
+        <li><a data-nav-link href="f2l.html">F2L</a></li>
+        <li><a data-nav-link href="oll.html">OLL</a></li>
+        <li><a data-nav-link href="pll.html">PLL</a></li>
+        <li><a data-nav-link href="algorithm.html">Algorithm</a></li>
+        <li><a data-nav-link href="timer.html">Timer</a></li>
+        <li><a data-nav-link href="solver.html" class="active">Solver</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <div class="solver-layout">
+      <section class="surface-card">
+        <div class="f2l-intro">
+          <h1>Cube State Input</h1>
+          <p class="lead">Paint the cube to match your scramble.</p>
+        </div>
+
+        <div class="palette">
+          <div class="palette-color white active" data-color="white"></div>
+          <div class="palette-color yellow" data-color="yellow"></div>
+          <div class="palette-color green" data-color="green"></div>
+          <div class="palette-color blue" data-color="blue"></div>
+          <div class="palette-color red" data-color="red"></div>
+          <div class="palette-color orange" data-color="orange"></div>
+        </div>
+
+        <div class="board-wrap" style="height: 400px;">
+          <div class="scene" id="scene">
+            <div class="cube" id="cube">
+              <div class="cube-face face-u"></div>
+              <div class="cube-face face-l"></div>
+              <div class="cube-face face-f"></div>
+              <div class="cube-face face-r"></div>
+              <div class="cube-face face-b"></div>
+              <div class="cube-face face-d"></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="button-row" style="justify-content: center; margin-top: 20px;">
+          <button class="btn btn-primary" id="solve-btn">Analyze & Solve</button>
+          <button class="btn btn-ghost" id="reset-btn">Reset</button>
+        </div>
+      </section>
+
+      <aside>
+        <div class="surface-card">
+          <h3>Solution</h3>
+          <div id="solution-container">
+            <div class="solution-section">
+              <p class="muted">Enter cube state to see solution.</p>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script src="js/min2phase.js"></script>
+  <script src="js/rubiks-cube-solver.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/solver.js"></script>
+</body>
+</html>

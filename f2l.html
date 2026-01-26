@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learn CFOP | F2L</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/loader.css" />
+</head>
+<body>
+  <div id="page-loader" class="page-loader is-active" role="status" aria-live="polite" aria-label="Loading page">
+    <div class="loader-card">
+      <div class="loader-visual">
+        <svg viewBox="0 0 60 60" stroke="#6D7582" stroke-linejoin="round" aria-hidden="true">
+          <g id="loader-cube" fill="#fff">
+            <path id="loader-base"></path>
+            <path id="loader-lid"></path>
+          </g>
+        </svg>
+      </div>
+      <div class="loader-text">
+        <div>Loading the trainer…</div>
+        <div class="loader-sub">Switching faces and setting stickers.</div>
+      </div>
+    </div>
+  </div>
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Learn CFOP</span>
+      </div>
+      <ul class="nav-links">
+        <li><a data-nav-link href="index.html">Home</a></li>
+        <li><a data-nav-link href="cross.html">Cross</a></li>
+        <li><a data-nav-link href="f2l.html">F2L</a></li>
+        <li><a data-nav-link href="oll.html">OLL</a></li>
+        <li><a data-nav-link href="pll.html">PLL</a></li>
+        <li><a data-nav-link href="algorithm.html">Algorithm</a></li>
+        <li><a data-nav-link href="timer.html">Timer</a></li>
+      </ul>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+        <span aria-hidden="true">☀︎</span>
+        <span data-theme-label>Dark mode</span>
+      </button>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <section class="page-hero">
+      <div class="hero-panel">
+        <div class="pill">F2L studio</div>
+        <h1>Locate, pair, and drop every F2L pair with confidence.</h1>
+        <p class="lead">Use the interactive board to set your corner and edge, flip orientations, and pull the exact alg you need. Designed for front-right slot practice with minimal cube rotations.</p>
+        <div class="hero-meta">
+          <span class="pill"><strong>5</strong> corner spots</span>
+          <span class="pill"><strong>5</strong> edge spots</span>
+          <span class="pill"><strong>Live</strong> alg lookup</span>
+        </div>
+        <div class="button-row">
+          <a class="btn btn-primary" href="cross.html" data-loader-link>Warm up with Cross</a>
+          <a class="btn btn-ghost" href="oll.html" data-loader-link>Jump to OLL</a>
+        </div>
+      </div>
+      <div class="surface-card">
+        <h3>Session targets</h3>
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-label">Rotations</div>
+            <div class="stat-value">0-1</div>
+            <span class="muted">Bias toward R, U, F moves; avoid L unless planned.</span>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Pair time</div>
+            <div class="stat-value">2.0s</div>
+            <span class="muted">From detection to insert; reset if you pause.</span>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Lookahead</div>
+            <div class="stat-value">1 piece</div>
+            <span class="muted">Call out your next edge while inserting this pair.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="surface-card f2l-lab">
+      <div class="f2l-intro">
+        <p class="lead">Top face is yellow. Front = Green, Right = Orange. Click the markers to place the pair.</p>
+        <h1>F2L pair helper</h1>
+        <p class="lead">Pick the green-orange-white corner and green-orange edge positions, flip their orientations, then fetch the matching algorithm.</p>
+        <div class="status" id="f2l-status">Select a corner and an edge to begin.</div>
+      </div>
+
+      <div class="lab-grid">
+        <div class="board-wrap">
+          <div class="scene">
+            <div class="cube" id="cube">
+              <div class="cube-face face-u"></div>
+              <div class="cube-face face-f"></div>
+              <div class="cube-face face-r"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="control-stack">
+          <div class="control-group">
+            <div class="control-title">Corner (white-green-orange)</div>
+            <div class="control-hint">Five spots. Click any corner marker, then twist if needed.</div>
+            <button class="chip" type="button" id="corner-ori">Twist: white on U</button>
+          </div>
+          <div class="control-group">
+            <div class="control-title">Edge (green-orange)</div>
+            <div class="control-hint">Five spots. Click any edge marker, then flip if needed.</div>
+            <button class="chip" type="button" id="edge-ori">Flip: green on F</button>
+          </div>
+          <div class="control-group actions">
+            <div class="button-row">
+              <button class="btn btn-primary" type="button" id="f2l-search">Search for solution</button>
+              <button class="btn btn-ghost" type="button" id="f2l-reset">Reset</button>
+            </div>
+            <div class="result" aria-live="polite">
+              <div class="status" id="f2l-match">Waiting for your pair selection…</div>
+              <div id="f2l-solution"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="surface-card section-block">
+      <h2 class="section-title">Playlist</h2>
+      <div class="drill-grid">
+        <div class="drill-card">
+          <h4>Front-right only</h4>
+          <p>Run 10 pairs only into FR. Forces controlled insertions and better AUFs.</p>
+          <div class="tag-row"><span class="tag">Slot focus</span><span class="tag">Low rotation</span></div>
+        </div>
+        <div class="drill-card">
+          <h4>Extraction sprints</h4>
+          <p>Pick any corner on U and pull it out in 2 moves max, then pair and insert.</p>
+          <div class="tag-row"><span class="tag">Efficiency</span><span class="tag">Setup moves</span></div>
+        </div>
+        <div class="drill-card">
+          <h4>Opposite color pairs</h4>
+          <p>Force yourself to solve with swapped colors (yellow/white). Improves recognition.</p>
+          <div class="tag-row"><span class="tag">Recognition</span><span class="tag">Flexibility</span></div>
+        </div>
+        <div class="drill-card">
+          <h4>Pause-free inserts</h4>
+          <p>Do 5 pairs where the last two moves are executed without stopping; reset if you pause.</p>
+          <div class="tag-row"><span class="tag">Flow</span><span class="tag">Tempo</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="surface-card f2l-animation" id="animation-section" style="display:none; margin-top: 20px;">
+      <div class="f2l-intro">
+        <h3>Solution Animation</h3>
+        <p class="lead">Visualize the moves on a virtual cube.</p>
+      </div>
+      <div class="lab-grid" style="justify-content: center;">
+        <div class="board-wrap">
+          <div class="scene">
+            <div class="cube" id="anim-cube">
+              <!-- Full 6-sided cube for animation -->
+              <div class="cube-face face-u"></div>
+              <div class="cube-face face-f"></div>
+              <div class="cube-face face-r"></div>
+              <div class="cube-face face-d"></div>
+              <div class="cube-face face-l"></div>
+              <div class="cube-face face-b"></div>
+            </div>
+          </div>
+        </div>
+        <div class="control-stack">
+           <div class="control-group">
+             <div class="control-title">Controls</div>
+             <button class="btn btn-primary" id="anim-replay">Replay Solution</button>
+             <div id="anim-steps" class="solution-moves" style="margin-top:10px;"></div>
+           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="simple-grid">
+        <div class="surface-card">
+          <h3>Recognition anchors</h3>
+          <p class="lead">Track the white sticker on the corner and the orange sticker on the edge first; they tell you if you need a flip or twist.</p>
+        </div>
+        <div class="surface-card">
+          <h3>Grip reminder</h3>
+          <p class="lead">Thumb on front-right, index on U. Use flicks for U and push for U'. Avoid mid-pair regrips.</p>
+        </div>
+        <div class="surface-card">
+          <h3>Next step</h3>
+          <p class="lead">When this pair lands, immediately glance at the opposite slot edge to keep lookahead alive.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/site.js" defer></script>
+  <script src="js/f2l.js" defer></script>
+  <script src="js/f2l-animation.js" defer></script>
+</body>
+</html>

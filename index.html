@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learn CFOP | Home</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/loader.css" />
+</head>
+<body>
+  <div id="page-loader" class="page-loader is-active" role="status" aria-live="polite" aria-label="Loading page">
+    <div class="loader-card">
+      <div class="loader-visual">
+        <svg viewBox="0 0 60 60" stroke="#6D7582" stroke-linejoin="round" aria-hidden="true">
+          <g id="loader-cube" fill="#fff">
+            <path id="loader-base"></path>
+            <path id="loader-lid"></path>
+          </g>
+        </svg>
+      </div>
+      <div class="loader-text">
+        <div>Loading the trainer…</div>
+        <div class="loader-sub">Switching faces and setting stickers.</div>
+      </div>
+    </div>
+  </div>
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Learn CFOP</span>
+      </div>
+      <ul class="nav-links">
+        <li><a data-nav-link href="index.html">Home</a></li>
+        <li><a data-nav-link href="cross.html">Cross</a></li>
+        <li><a data-nav-link href="f2l.html">F2L</a></li>
+        <li><a data-nav-link href="oll.html">OLL</a></li>
+        <li><a data-nav-link href="pll.html">PLL</a></li>
+        <li><a data-nav-link href="algorithm.html">Algorithm</a></li>
+        <li><a data-nav-link href="timer.html">Timer</a></li>
+      </ul>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+        <span aria-hidden="true">☀︎</span>
+        <span data-theme-label>Dark mode</span>
+      </button>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <section class="page-hero">
+      <div class="hero-panel">
+        <div class="pill">CFOP trainer · guided practice</div>
+        <h1>Build a reliable CFOP solve with deliberate reps.</h1>
+        <p class="lead">Short drills, visual helpers, and ready-to-run algs for Cross, F2L, OLL, and PLL. Swap themes, keep focus, and rehearse the pieces you usually drop.</p>
+        <div class="hero-meta">
+          <span class="pill"><strong>Cross</strong> lab</span>
+          <span class="pill"><strong>F2L</strong> studio</span>
+          <span class="pill"><strong>OLL</strong> painter</span>
+          <span class="pill"><strong>PLL</strong> anchors</span>
+        </div>
+        <div class="button-row">
+          <a class="btn btn-primary" href="cross.html" data-loader-link>Go to Cross lab</a>
+          <a class="btn btn-ghost" href="#modules">Browse modules</a>
+        </div>
+      </div>
+      <div class="surface-card">
+        <h3>20-minute session recipe</h3>
+        <p class="lead">Use one loop to avoid hopping between ideas mid-practice.</p>
+        <ul class="checklist">
+          <li>5x inspection-only Cross reps (12 seconds per look)</li>
+          <li>5x F2L pair extractions with no cube rotations</li>
+          <li>10x OLL paints using the live trainer</li>
+          <li>5x PLL recognition sprints with PLL lookups</li>
+        </ul>
+        <p class="note">Tip: stay on one color-neutral plan for the whole loop, then switch colors next session.</p>
+      </div>
+    </section>
+
+    <section id="modules" class="section-block">
+      <h2 class="section-title">Practice modules</h2>
+      <div class="grid-cards">
+        <div class="tile-card">
+          <div class="eyebrow">Foundation</div>
+          <h3>Cross lab</h3>
+          <p>Plan efficient crosses with predictable fingertricks and inspection cues.</p>
+          <div class="tag-row">
+            <span class="tag">Color neutral</span>
+            <span class="tag">Inspection ready</span>
+          </div>
+          <a data-loader-link href="cross.html">Open Cross lab</a>
+        </div>
+        <div class="tile-card">
+          <div class="eyebrow">Pairing</div>
+          <h3>F2L studio</h3>
+          <p>Map a corner-edge pair, flip orientations, and pull the right alg instantly.</p>
+          <div class="tag-row">
+            <span class="tag">Pair locator</span>
+            <span class="tag">Low-rotation</span>
+          </div>
+          <a data-loader-link href="f2l.html">Open F2L studio</a>
+        </div>
+        <div class="tile-card">
+          <div class="eyebrow">Orientation</div>
+          <h3>OLL painter</h3>
+          <p>Paint stickers, detect your case, and drill the matching algorithm.</p>
+          <div class="tag-row">
+            <span class="tag">57 cases</span>
+            <span class="tag">Pattern-first</span>
+          </div>
+          <a data-loader-link href="oll.html">Open OLL painter</a>
+        </div>
+        <div class="tile-card">
+          <div class="eyebrow">Permutation</div>
+          <h3>PLL anchors</h3>
+          <p>Lock in recognition with anchor stickers and short execution prompts.</p>
+          <div class="tag-row">
+            <span class="tag">21 cases</span>
+            <span class="tag">Fingertricks</span>
+          </div>
+          <a data-loader-link href="pll.html">Open PLL anchors</a>
+        </div>
+        <div class="tile-card">
+          <div class="eyebrow">Timing</div>
+          <h3>Timer</h3>
+          <p>Generate scrambles, track solves, add +2/DNF, and view your trend line locally.</p>
+          <div class="tag-row">
+            <span class="tag">20-25 moves</span>
+            <span class="tag">Stats + graph</span>
+          </div>
+          <a data-loader-link href="timer.html">Open Timer</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="surface-card section-block">
+      <h2 class="section-title">Method map</h2>
+      <div class="timeline">
+        <div class="timeline-step">
+          <strong>1) Cross</strong>
+          <span class="muted">Plot a 4-edge cross with two-finger turns and predict the final AUF.</span>
+        </div>
+        <div class="timeline-step">
+          <strong>2) F2L</strong>
+          <span class="muted">Extract, pair, and insert. Start with front-right slot and minimize cube rotations.</span>
+        </div>
+        <div class="timeline-step">
+          <strong>3) OLL</strong>
+          <span class="muted">Orient the top face with the painter, then rehearse the alg with your grip in mind.</span>
+        </div>
+        <div class="timeline-step">
+          <strong>4) PLL</strong>
+          <span class="muted">Anchor stickers, name the case, and finish with controlled AUFs.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="simple-grid">
+        <div class="surface-card">
+          <h3>Light + dark ready</h3>
+          <p class="lead">Toggle themes and keep your stickers high-contrast in both modes.</p>
+        </div>
+        <div class="surface-card">
+          <h3>Session-friendly</h3>
+          <p class="lead">Fast loaders, single-page focus, and short instructions that stay near your cursor.</p>
+        </div>
+        <div class="surface-card">
+          <h3>Reference built-in</h3>
+          <p class="lead">Algorithms, recognition hints, and quick resets live beside each tool.</p>
+        </div>
+      </div>
+      <footer>
+        Built for cubers who want to move from memorizing to understanding.
+      </footer>
+    </section>
+  </main>
+
+  <script src="js/site.js" defer></script>
+</body>
+</html>

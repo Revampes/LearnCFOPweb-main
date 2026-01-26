@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learn CFOP | Timer</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/loader.css" />
+</head>
+<body>
+  <div id="page-loader" class="page-loader is-active" role="status" aria-live="polite" aria-label="Loading page">
+    <div class="loader-card">
+      <div class="loader-visual">
+        <svg viewBox="0 0 60 60" stroke="#6D7582" stroke-linejoin="round" aria-hidden="true">
+          <g id="loader-cube" fill="#fff">
+            <path id="loader-base"></path>
+            <path id="loader-lid"></path>
+          </g>
+        </svg>
+      </div>
+      <div class="loader-text">
+        <div>Loading the trainer…</div>
+        <div class="loader-sub">Switching faces and setting stickers.</div>
+      </div>
+    </div>
+  </div>
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Learn CFOP</span>
+      </div>
+      <ul class="nav-links">
+        <li><a data-nav-link href="index.html">Home</a></li>
+        <li><a data-nav-link href="cross.html">Cross</a></li>
+        <li><a data-nav-link href="f2l.html">F2L</a></li>
+        <li><a data-nav-link href="oll.html">OLL</a></li>
+        <li><a data-nav-link href="pll.html">PLL</a></li>
+        <li><a data-nav-link href="algorithm.html">Algorithm</a></li>
+        <li><a data-nav-link href="timer.html">Timer</a></li>
+      </ul>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+        <span aria-hidden="true">☀︎</span>
+        <span data-theme-label>Dark mode</span>
+      </button>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <section class="page-hero">
+      <div class="hero-panel">
+        <div class="pill">Timer</div>
+        <h1>Speedsolve timer with scrambles and stats.</h1>
+        <p class="lead">Hold spacebar or left-click for 0.5 seconds, release to start. Press again to stop. Every time is saved locally.</p>
+        <div class="hero-meta">
+          <span class="pill"><strong>20-25</strong> move scrambles</span>
+          <span class="pill"><strong>Hold</strong> 0.5s to arm</span>
+          <span class="pill"><strong>Space/Click</strong> to stop</span>
+        </div>
+        <div class="button-row">
+          <a class="btn btn-primary" href="#timer-area">Jump to timer</a>
+          <a class="btn btn-ghost" href="#times-list">Jump to times</a>
+        </div>
+      </div>
+      <div class="surface-card">
+        <h3>How it works</h3>
+        <ul class="checklist">
+          <li>Scramble refreshes on load and after every recorded solve.</li>
+          <li>Hold space or left-click for at least 0.5s, release to start.</li>
+          <li>Press space or left-click once to stop and save.</li>
+          <li>Adjust penalties with +2 / DNF; delete or clear as needed.</li>
+        </ul>
+        <p class="note">Reference: ruwix-style stopwatch flow with local, offline storage.</p>
+      </div>
+    </section>
+
+    <section id="timer-area" class="surface-card timer-shell">
+      <div class="timer-grid">
+        <div class="timer-panel" id="timer-touch">
+          <div class="scramble-tag">Scramble: <span id="timer-scramble"></span></div>
+          <div class="timer-display" id="timer-display">0.00</div>
+          <p class="timer-instruction" id="timer-instruction">Hold spacebar or left-click on the timer for 0.5s, release to start. Press again to stop.</p>
+          <div class="timer-actions">
+            <button class="btn btn-primary" type="button" id="new-scramble">New scramble</button>
+          </div>
+        </div>
+
+        <div class="timer-stats">
+          <div class="stat-grid">
+            <div class="stat-card">
+              <div class="stat-label">Best</div>
+              <div class="stat-value" id="stat-best">—</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Worst</div>
+              <div class="stat-value" id="stat-worst">—</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Average</div>
+              <div class="stat-value" id="stat-avg">—</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Median</div>
+              <div class="stat-value" id="stat-median">—</div>
+            </div>
+          </div>
+          <div class="timer-graph" id="timer-graph">
+            <div class="graph-empty">Run a few solves to see your trend.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="times-list" class="surface-card section-block">
+      <h2 class="section-title">Times</h2>
+      <div class="times-list" id="time-rows"></div>
+      <div class="timer-actions">
+        <button class="btn btn-ghost" type="button" id="clear-times">Clear all</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/site.js" defer></script>
+  <script src="js/timer.js" defer></script>
+</body>
+</html>

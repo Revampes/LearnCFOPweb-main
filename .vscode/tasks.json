@@ -1,0 +1,12 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "backup_styles",
+			"type": "shell",
+			"command": "cat css/styles.css >> css/styles.css.bak",
+			"args": [],
+			"group": "none"
+		}
+	]
+}

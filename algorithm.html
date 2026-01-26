@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learn CFOP | Algorithm Library</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/loader.css" />
+</head>
+<body>
+  <div id="page-loader" class="page-loader is-active" role="status" aria-live="polite" aria-label="Loading page">
+    <div class="loader-card">
+      <div class="loader-visual">
+        <svg viewBox="0 0 60 60" stroke="#6D7582" stroke-linejoin="round" aria-hidden="true">
+          <g id="loader-cube" fill="#fff">
+            <path id="loader-base"></path>
+            <path id="loader-lid"></path>
+          </g>
+        </svg>
+      </div>
+      <div class="loader-text">
+        <div>Loading the trainer…</div>
+        <div class="loader-sub">Switching faces and setting stickers.</div>
+      </div>
+    </div>
+  </div>
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Learn CFOP</span>
+      </div>
+      <ul class="nav-links">
+        <li><a data-nav-link href="index.html">Home</a></li>
+        <li><a data-nav-link href="cross.html">Cross</a></li>
+        <li><a data-nav-link href="f2l.html">F2L</a></li>
+        <li><a data-nav-link href="oll.html">OLL</a></li>
+        <li><a data-nav-link href="pll.html">PLL</a></li>
+        <li><a data-nav-link href="algorithm.html">Algorithm</a></li>
+        <li><a data-nav-link href="timer.html">Timer</a></li>
+      </ul>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+        <span aria-hidden="true">☀︎</span>
+        <span data-theme-label>Dark mode</span>
+      </button>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <section class="page-hero">
+      <div class="hero-panel">
+        <div class="pill">Algorithm library</div>
+        <h1>All F2L, OLL, and PLL solutions in one place.</h1>
+        <p class="lead">Browse every case, keep the CFOP orientation in view, and animate any solution instantly.</p>
+        <div class="hero-meta">
+          <span class="pill"><strong>119</strong> total cases</span>
+          <span class="pill"><strong>CFOP</strong> orientation</span>
+          <span class="pill"><strong>Live</strong> animation</span>
+        </div>
+        <div class="button-row">
+          <a class="btn btn-primary" href="#alg-library">Browse algorithms</a>
+          <button class="btn btn-ghost" type="button" data-open-modal>Open animation</button>
+        </div>
+      </div>
+      <div class="surface-card orientation-card">
+        <h3>Cube orientation</h3>
+        <div class="orientation-grid" aria-label="CFOP orientation">
+          <span class="orientation-cell yellow" title="Up (U)">U</span>
+          <span class="orientation-cell green" title="Front (F)">F</span>
+          <span class="orientation-cell orange" title="Right (R)">R</span>
+          <span class="orientation-cell white" title="Down (D)">D</span>
+        </div>
+        <p class="note">Hold this frame: Up = Yellow, Front = Green, Right = Orange. y / y' are baked into each alg.</p>
+      </div>
+    </section>
+
+    <section id="alg-library" class="surface-card alg-shell">
+      <div class="alg-filters">
+        <div>
+          <div class="pill">Complete reference</div>
+          <h2 class="section-title" style="margin: 6px 0 0;">Pick a case and play it</h2>
+          <p class="lead" style="margin: 4px 0 0;">Filter by step, search by ID or move snippet, then preview the turns.</p>
+        </div>
+        <div class="alg-filter-controls" style="display: grid; gap: 8px;">
+          <div class="alg-filter-buttons" role="group" aria-label="Filter by step">
+            <button class="chip is-active" type="button" data-alg-filter="all">All</button>
+            <button class="chip" type="button" data-alg-filter="F2L">F2L</button>
+            <button class="chip" type="button" data-alg-filter="OLL">OLL</button>
+            <button class="chip" type="button" data-alg-filter="PLL">PLL</button>
+          </div>
+          <label class="alg-search">
+            <span>Search</span>
+            <input id="alg-search" type="search" placeholder="F2L-12, T-perm, R U R'..." aria-label="Search algorithms" />
+          </label>
+        </div>
+      </div>
+
+      <div class="alg-grid" id="alg-grid" aria-live="polite"></div>
+      <div class="status" id="alg-status">Loading algorithms…</div>
+    </section>
+  </main>
+
+  <div id="alg-modal" class="alg-modal" aria-hidden="true">
+    <div class="alg-modal-backdrop" data-close-modal></div>
+    <div class="alg-modal-card" role="dialog" aria-modal="true" aria-labelledby="selected-alg-label">
+      <button class="alg-modal-close" type="button" data-close-modal aria-label="Close animation">×</button>
+      <section class="surface-card f2l-animation" id="animation-section" style="display:none; margin-top: 0;">
+        <div class="f2l-intro">
+          <h3>Solution Animation</h3>
+          <p class="lead">Visualize the move sequence on a virtual cube.</p>
+          <div class="status" id="selected-alg-label">Pick a case to animate.</div>
+        </div>
+        <div class="lab-grid" style="justify-content: center;">
+          <div class="board-wrap">
+            <div class="scene">
+              <div class="cube" id="anim-cube">
+                <div class="cube-face face-u"></div>
+                <div class="cube-face face-f"></div>
+                <div class="cube-face face-r"></div>
+                <div class="cube-face face-d"></div>
+                <div class="cube-face face-l"></div>
+                <div class="cube-face face-b"></div>
+              </div>
+            </div>
+          </div>
+          <div class="control-stack">
+            <div class="control-group">
+              <div class="control-title">Controls</div>
+              <button class="btn btn-primary" id="anim-replay">Replay Solution</button>
+              <div id="anim-steps" class="solution-moves" style="margin-top:10px;"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script src="js/site.js" defer></script>
+  <script src="js/algorithm.js" defer></script>
+  <script src="js/f2l-animation.js" defer></script>
+</body>
+</html>

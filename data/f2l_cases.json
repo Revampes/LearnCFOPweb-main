@@ -1,0 +1,371 @@
+[
+  {
+    "id": "F2L-01",
+    "name": "F01",
+    "cornerPos": "UFR",
+    "cornerOri": 2,
+    "edgePos": "UR",
+    "edgeOri": 0,
+    "solution": "U R U' R'"
+  },
+  {
+    "id": "F2L-02",
+    "name": "F02",
+    "cornerPos": "UFR",
+    "cornerOri": 1,
+    "edgePos": "UF",
+    "edgeOri": 1,
+    "solution": "y U' L' U L"
+  },
+  {
+    "id": "F2L-03",
+    "name": "F03",
+    "cornerPos": "UFR",
+    "cornerOri": 2,
+    "edgePos": "UL",
+    "edgeOri": 1,
+    "solution": "y L' U' L"
+  },
+  {
+    "id": "F2L-04",
+    "name": "F04",
+    "cornerPos": "UFR",
+    "cornerOri": 1,
+    "edgePos": "UB",
+    "edgeOri": 0,
+    "solution": "R U R'"
+  },
+  {
+    "id": "F2L-05",
+    "name": "F05",
+    "cornerPos": "UFR",
+    "cornerOri": 2,
+    "edgePos": "UB",
+    "edgeOri": 0,
+    "solution": "U' R U R' U2 R U' R'"
+  },
+  {
+    "id": "F2L-06",
+    "name": "F06",
+    "cornerPos": "UFR",
+    "cornerOri": 1,
+    "edgePos": "UL",
+    "edgeOri": 1,
+    "solution": "y U L' U' L U2 L' U L"
+  },
+  {
+    "id": "F2L-07",
+    "name": "F07",
+    "cornerPos": "UFR",
+    "cornerOri": 2,
+    "edgePos": "UL",
+    "edgeOri": 0,
+    "solution": "U' R U2 R' U2 R U' R'"
+  },
+  {
+    "id": "F2L-08",
+    "name": "F08",
+    "cornerPos": "UFR",
+    "cornerOri": 1,
+    "edgePos": "UB",
+    "edgeOri": 1,
+    "solution": "y U L' U2 L U2 L' U L"
+  },
+  {
+    "id": "F2L-09",
+    "name": "F09",
+    "cornerPos": "UFR",
+    "cornerOri": 2,
+    "edgePos": "UB",
+    "edgeOri": 1,
+    "solution": "U' R U' R' U y L' U' L"
+  },
+  {
+    "id": "F2L-10",
+    "name": "F10",
+    "cornerPos": "UFR",
+    "cornerOri": 1,
+    "edgePos": "UL",
+    "edgeOri": 0,
+    "solution": "U' R U R' U R U R'"
+  },
+  {
+    "id": "F2L-11",
+    "name": "F11",
+    "cornerPos": "UFR",
+    "cornerOri": 2,
+    "edgePos": "UR",
+    "edgeOri": 1,
+    "solution": "y' R U2 R2 U' R2 U' R'"
+  },
+  {
+    "id": "F2L-12",
+    "name": "F12",
+    "cornerPos": "UFR",
+    "cornerOri": 1,
+    "edgePos": "UF",
+    "edgeOri": 0,
+    "solution": "R U' R' U R U' R' U2 R U' R'"
+  },
+  {
+    "id": "F2L-13",
+    "name": "F13",
+    "cornerPos": "UFR",
+    "cornerOri": 2,
+    "edgePos": "UF",
+    "edgeOri": 1,
+    "solution": "y' U R' U R U' R' U' R"
+  },
+  {
+    "id": "F2L-14",
+    "name": "F14",
+    "cornerPos": "UFR",
+    "cornerOri": 1,
+    "edgePos": "UR",
+    "edgeOri": 0,
+    "solution": "U' R U' R' U R U R'"
+  },
+  {
+    "id": "F2L-15",
+    "name": "F15",
+    "cornerPos": "UFR",
+    "cornerOri": 2,
+    "edgePos": "UF",
+    "edgeOri": 0,
+    "solution": "R U R' U2 R U' R' U R U' R'"
+  },
+  {
+    "id": "F2L-16",
+    "name": "F16",
+    "cornerPos": "UFR",
+    "cornerOri": 1,
+    "edgePos": "UR",
+    "edgeOri": 1,
+    "solution": "R U' R' U2 y' R' U' R"
+  },
+  {
+    "id": "F2L-17",
+    "name": "F17",
+    "cornerPos": "UFR",
+    "cornerOri": 0,
+    "edgePos": "UR",
+    "edgeOri": 0,
+    "solution": "R U2 R' U' R U R'"
+  },
+  {
+    "id": "F2L-18",
+    "name": "F18",
+    "cornerPos": "UFR",
+    "cornerOri": 0,
+    "edgePos": "UF",
+    "edgeOri": 1,
+    "solution": "y L' U2 L U L' U' L"
+  },
+  {
+    "id": "F2L-19",
+    "name": "F19",
+    "cornerPos": "UFR",
+    "cornerOri": 0,
+    "edgePos": "UB",
+    "edgeOri": 0,
+    "solution": "U R U2 R' U R U' R'"
+  },
+  {
+    "id": "F2L-20",
+    "name": "F20",
+    "cornerPos": "UFR",
+    "cornerOri": 0,
+    "edgePos": "UL",
+    "edgeOri": 1,
+    "solution": "y U' L' U2 L U' L' U L"
+  },
+  {
+    "id": "F2L-21",
+    "name": "F21",
+    "cornerPos": "UFR",
+    "cornerOri": 0,
+    "edgePos": "UL",
+    "edgeOri": 0,
+    "solution": "U2 R U R' U R U' R'"
+  },
+  {
+    "id": "F2L-22",
+    "name": "F22",
+    "cornerPos": "UFR",
+    "cornerOri": 0,
+    "edgePos": "UB",
+    "edgeOri": 1,
+    "solution": "r U' r' U2 r U r'"
+  },
+  {
+    "id": "F2L-23",
+    "name": "F23",
+    "cornerPos": "UFR",
+    "cornerOri": 0,
+    "edgePos": "UF",
+    "edgeOri": 0,
+    "solution": "U R U' R' U' R U' R' U R U' R'"
+  },
+  {
+    "id": "F2L-24",
+    "name": "F24",
+    "cornerPos": "UFR",
+    "cornerOri": 0,
+    "edgePos": "UR",
+    "edgeOri": 1,
+    "solution": "y U' L' U L U L' U L U' L' U L"
+  },
+  {
+    "id": "F2L-25",
+    "name": "F25",
+    "cornerPos": "FR_SLOT",
+    "cornerOri": 0,
+    "edgePos": "UR",
+    "edgeOri": 0,
+    "solution": "U' R' F R F' R U R'"
+  },
+  {
+    "id": "F2L-26",
+    "name": "F26",
+    "cornerPos": "FR_SLOT",
+    "cornerOri": 0,
+    "edgePos": "UF",
+    "edgeOri": 1,
+    "solution": "U R U' R' y U' L' U L"
+  },
+  {
+    "id": "F2L-27",
+    "name": "F27",
+    "cornerPos": "FR_SLOT",
+    "cornerOri": 1,
+    "edgePos": "UR",
+    "edgeOri": 0,
+    "solution": "R U' R' U R U' R'"
+  },
+  {
+    "id": "F2L-28",
+    "name": "F28",
+    "cornerPos": "FR_SLOT",
+    "cornerOri": 2,
+    "edgePos": "UF",
+    "edgeOri": 1,
+    "solution": "y L' U L U' L' U L"
+  },
+  {
+    "id": "F2L-29",
+    "name": "F29",
+    "cornerPos": "FR_SLOT",
+    "cornerOri": 1,
+    "edgePos": "UF",
+    "edgeOri": 1,
+    "solution": "y L' U' L U L' U' L"
+  },
+  {
+    "id": "F2L-30",
+    "name": "F30",
+    "cornerPos": "FR_SLOT",
+    "cornerOri": 2,
+    "edgePos": "UR",
+    "edgeOri": 0,
+    "solution": "R U R' U' R U R'"
+  },
+  {
+    "id": "F2L-31",
+    "name": "F31",
+    "cornerPos": "UFR",
+    "cornerOri": 0,
+    "edgePos": "FR",
+    "edgeOri": 1,
+    "solution": "U' R' F R F' R U' R'"
+  },
+  {
+    "id": "F2L-32",
+    "name": "F32",
+    "cornerPos": "UFR",
+    "cornerOri": 0,
+    "edgePos": "FR",
+    "edgeOri": 0,
+    "solution": "R U R' U' R U R' U' R U R'"
+  },
+  {
+    "id": "F2L-33",
+    "name": "F33",
+    "cornerPos": "UFR",
+    "cornerOri": 2,
+    "edgePos": "FR",
+    "edgeOri": 0,
+    "solution": "U' R U' R' U2 R U' R'"
+  },
+  {
+    "id": "F2L-34",
+    "name": "F34",
+    "cornerPos": "UFR",
+    "cornerOri": 1,
+    "edgePos": "FR",
+    "edgeOri": 0,
+    "solution": "U R U R' U2 R U R'"
+  },
+  {
+    "id": "F2L-35",
+    "name": "F35",
+    "cornerPos": "UFR",
+    "cornerOri": 2,
+    "edgePos": "FR",
+    "edgeOri": 1,
+    "solution": "U' R U R' U y L' U' L"
+  },
+  {
+    "id": "F2L-36",
+    "name": "F36",
+    "cornerPos": "UFR",
+    "cornerOri": 1,
+    "edgePos": "FR",
+    "edgeOri": 1,
+    "solution": "y U L' U' L U' y' R U R'"
+  },
+  {
+    "id": "F2L-37",
+    "name": "F37",
+    "cornerPos": "FR_SLOT",
+    "cornerOri": 0,
+    "edgePos": "FR",
+    "edgeOri": 1,
+    "solution": "R' F R F' R U' R' U R U' R' U2 R U' R'"
+  },
+  {
+    "id": "F2L-38",
+    "name": "F38",
+    "cornerPos": "FR_SLOT",
+    "cornerOri": 1,
+    "edgePos": "FR",
+    "edgeOri": 0,
+    "solution": "R U' R' U' R U R' U2 R U' R'"
+  },
+  {
+    "id": "F2L-39",
+    "name": "F39",
+    "cornerPos": "FR_SLOT",
+    "cornerOri": 2,
+    "edgePos": "FR",
+    "edgeOri": 0,
+    "solution": "R U' R' U R U2 R' U R U' R'"
+  },
+  {
+    "id": "F2L-40",
+    "name": "F40",
+    "cornerPos": "FR_SLOT",
+    "cornerOri": 1,
+    "edgePos": "FR",
+    "edgeOri": 1,
+    "solution": "R U' R' U' R U' R' U y' R' U' R"
+  },
+  {
+    "id": "F2L-41",
+    "name": "F41",
+    "cornerPos": "FR_SLOT",
+    "cornerOri": 2,
+    "edgePos": "FR",
+    "edgeOri": 1,
+    "solution": "R U' R' U2 y' R' U' R U' R' U R"
+  }
+]

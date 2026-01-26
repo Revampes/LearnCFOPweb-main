@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learn CFOP | Cross</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/loader.css" />
+  <style>
+    .solver-controls {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .solver-status {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .solution-display {
+      background: var(--bg-surface);
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-family: monospace;
+      font-size: 1.2em;
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="page-loader" class="page-loader is-active" role="status" aria-live="polite" aria-label="Loading page">
+    <div class="loader-card">
+      <div class="loader-visual">
+        <svg viewBox="0 0 60 60" stroke="#6D7582" stroke-linejoin="round" aria-hidden="true">
+          <g id="loader-cube" fill="#fff">
+            <path id="loader-base"></path>
+            <path id="loader-lid"></path>
+          </g>
+        </svg>
+      </div>
+      <div class="loader-text">
+        <div>Loading the trainer…</div>
+        <div class="loader-sub">Switching faces and setting stickers.</div>
+      </div>
+    </div>
+  </div>
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Learn CFOP</span>
+      </div>
+      <ul class="nav-links">
+        <li><a data-nav-link href="index.html">Home</a></li>
+        <li><a data-nav-link href="cross.html">Cross</a></li>
+        <li><a data-nav-link href="f2l.html">F2L</a></li>
+        <li><a data-nav-link href="oll.html">OLL</a></li>
+        <li><a data-nav-link href="pll.html">PLL</a></li>
+        <li><a data-nav-link href="algorithm.html">Algorithm</a></li>
+        <li><a data-nav-link href="timer.html">Timer</a></li>
+      </ul>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+        <span aria-hidden="true">☀︎</span>
+        <span data-theme-label>Dark mode</span>
+      </button>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <section class="surface-card f2l-lab">
+      <div class="f2l-intro">
+        <h1>Cross Solution Provider</h1>
+        <p class="lead">Drag to rotate the cube. Select the 4 edges that contain White.</p>
+        <div class="status" id="solver-status">Selected: 0/4 edges</div>
+        <div class="status-sub" style="margin-top: 0.5rem; font-size: 0.95em; color: var(--muted);">
+          <strong>Orientation:</strong> Hold Yellow Top, Green Front
+        </div>
+        <div class="status-next" id="next-piece-display" style="margin-top: 0.25rem; font-weight: 600; color: var(--accent);">
+          Next Piece: White-Green
+        </div>
+      </div>
+
+      <div class="lab-grid">
+        <div class="board-wrap">
+          <div class="scene" id="scene">
+            <div class="cube" id="cube">
+              <div class="cube-face face-u"></div>
+              <div class="cube-face face-l"></div>
+              <div class="cube-face face-f"></div>
+              <div class="cube-face face-r"></div>
+              <div class="cube-face face-b"></div>
+              <div class="cube-face face-d"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-stack">
+          <div class="solver-controls">
+            <div class="control-title">Solution</div>
+            <div class="solution-display" id="solution-text">
+              Waiting for input...
+            </div>
+            
+            <div class="button-row">
+              <button class="btn btn-primary" type="button" id="solve-btn">Solve Cross</button>
+              <button class="btn btn-ghost" type="button" id="reset-btn">Reset</button>
+            </div>
+          </div>
+          
+          <div class="surface-card">
+            <h3>Instructions</h3>
+            <ul class="checklist">
+              <li>Drag the cube to rotate view.</li>
+              <li>Click the 4 edges that have a White sticker.</li>
+              <li>Click "Solve Cross" to get the optimal solution (max 8 moves).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="surface-card f2l-animation" id="animation-section" style="display:none; margin-top: 20px;">
+      <div class="f2l-intro">
+        <h3>Solution Animation</h3>
+        <p class="lead">Visualize the moves on a virtual cube.</p>
+      </div>
+      <div class="lab-grid" style="justify-content: center;">
+        <div class="board-wrap">
+          <div class="scene">
+            <div class="cube" id="anim-cube">
+              <!-- Full 6-sided cube for animation -->
+              <div class="cube-face face-u"></div>
+              <div class="cube-face face-f"></div>
+              <div class="cube-face face-r"></div>
+              <div class="cube-face face-d"></div>
+              <div class="cube-face face-l"></div>
+              <div class="cube-face face-b"></div>
+            </div>
+          </div>
+        </div>
+        <div class="control-stack">
+           <div class="control-group">
+             <div class="control-title">Controls</div>
+             <button class="btn btn-primary" id="anim-replay">Replay Solution</button>
+             <div id="anim-steps" class="solution-moves" style="margin-top:10px;"></div>
+           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="surface-card section-block">
+      <h2 class="section-title">Quick start (3 minutes)</h2>
+      <ul class="checklist">
+        <li>Pick a fixed color for 3 solves; then repeat the same scrambles color-neutral.</li>
+        <li>Plan all four edges plus final AUF during inspection. No mid-solve re-plans.</li>
+        <li>Execute with only U, D, R, F moves when possible. Avoid L/B unless planned.</li>
+        <li>On the last cross move, locate one F2L edge or corner. Call it out.</li>
+      </ul>
+      <p class="note">You should finish each rep in under 12 seconds including inspection; reset if you pause.</p>
+    </section>
+
+    <section class="surface-card section-block">
+      <h2 class="section-title">Inspection map</h2>
+      <div class="grid-cards">
+        <div class="tile-card">
+          <div class="eyebrow">Step 1</div>
+          <h3>Lock the base edge</h3>
+          <p>Pick the first edge that sits on D in two moves or less. Freeze that target and plan around it.</p>
+          <div class="tag-row">
+            <span class="tag">D-layer ready</span>
+            <span class="tag">Low rotation</span>
+          </div>
+        </div>
+        <div class="tile-card">
+          <div class="eyebrow">Step 2</div>
+          <h3>Pair two edges</h3>
+          <p>Find two edges that can slot together with an F/R trigger. Avoid dragging solved pieces.</p>
+          <div class="tag-row">
+            <span class="tag">Predict order</span>
+            <span class="tag">Fingertrick ready</span>
+          </div>
+        </div>
+        <div class="tile-card">
+          <div class="eyebrow">Step 3</div>
+          <h3>Last edge + AUF</h3>
+          <p>Reserve one move for AUF. Ask: do I finish with D, D', or D2? Call it before you start.</p>
+          <div class="tag-row">
+            <span class="tag">Predict AUF</span>
+            <span class="tag">No pauses</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="drills" class="section-block">
+      <h2 class="section-title">Drills</h2>
+      <div class="drill-grid">
+        <div class="drill-card">
+          <h4>12-second inspection</h4>
+          <p>Start timer at inspection. If you can't see all four edges + AUF by 12, skip the solve.</p>
+          <div class="tag-row"><span class="tag">Discipline</span><span class="tag">Planning</span></div>
+        </div>
+        <div class="drill-card">
+          <h4>One-side only</h4>
+          <p>Plan crosses using only F/R/D/U moves. Forces efficient pairings and fewer rotations.</p>
+          <div class="tag-row"><span class="tag">Move efficiency</span><span class="tag">Low regrip</span></div>
+        </div>
+        <div class="drill-card">
+          <h4>Lookahead bridge</h4>
+          <p>During the final cross move, name the first F2L edge or corner you will touch.</p>
+          <div class="tag-row"><span class="tag">F2L ready</span><span class="tag">Flow</span></div>
+        </div>
+        <div class="drill-card">
+          <h4>Scramble replay</h4>
+          <p>Do 3 solves on the same scramble: main color, opposite color, then full color-neutral.</p>
+          <div class="tag-row"><span class="tag">Color neutral</span><span class="tag">Adaptation</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="surface-card section-block">
+      <h2 class="section-title">Anchors and examples</h2>
+      <div class="simple-grid">
+        <div class="tile-card">
+          <div class="eyebrow">Common trigger</div>
+          <h3>F D' F' + D</h3>
+          <p>Great for pairing two edges on the front. Visualize the D' as a setup, not a correction.</p>
+        </div>
+        <div class="tile-card">
+          <div class="eyebrow">Insert from back</div>
+          <h3>R' F R</h3>
+          <p>When an edge is solved on D but flipped, keep F2L slots safe with this quick fix.</p>
+        </div>
+        <div class="tile-card">
+          <div class="eyebrow">Avoid regrip</div>
+          <h3>Wide U flick</h3>
+          <p>Use a wide U to realign without lifting the thumb. Faster than double flicks for AUF.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/site.js" defer></script>
+  <script src="js/cross.js" defer></script>
+  <script src="js/f2l-animation.js" defer></script>
+</body>
+</html>

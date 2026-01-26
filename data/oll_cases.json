@@ -1,0 +1,344 @@
+[
+  {
+    "id": "OLL01",
+    "topPattern": "00000000",
+    "ringPattern": "010111111010",
+    "solution": "R U2 R2 F R F' U2 R' F R F'"
+  },
+  {
+    "id": "OLL02",
+    "topPattern": "00000000",
+    "ringPattern": "011111010011",
+    "solution": "F R U R' U' S R U R' U' Fw'"
+  },
+  {
+    "id": "OLL03",
+    "topPattern": "00000001",
+    "ringPattern": "110011110010",
+    "solution": "Fw R U R' U' Fw' U' F R U R' U' F'"
+  },
+  {
+    "id": "OLL04",
+    "topPattern": "00100000",
+    "ringPattern": "010110011110",
+    "solution": "Fw R U R' U' Fw' U F R U R' U' F'"
+  },
+  {
+    "id": "OLL05",
+    "topPattern": "00001011",
+    "ringPattern": "110011100000",
+    "solution": "Rw' U2 R U R' U Rw"
+  },
+  {
+    "id": "OLL06",
+    "topPattern": "01101000",
+    "ringPattern": "000110001110",
+    "solution": "Rw U2 R' U' R U' Rw'"
+  },
+  {
+    "id": "OLL07",
+    "topPattern": "01010100",
+    "ringPattern": "100000110011",
+    "solution": "Rw U R' U R U2 Rw'"
+  },
+  {
+    "id": "OLL08",
+    "topPattern": "10010010",
+    "ringPattern": "011000011100",
+    "solution": "Rw' U' R U' R' U2 Rw"
+  },
+  {
+    "id": "OLL09",
+    "topPattern": "01010001",
+    "ringPattern": "001100010110",
+    "solution": "R U R' U' R' F R2 U R' U' F'"
+  },
+  {
+    "id": "OLL10",
+    "topPattern": "00110010",
+    "ringPattern": "110001010001",
+    "solution": "R U R' U R' F R F' R U2 R'"
+  },
+  {
+    "id": "OLL11",
+    "topPattern": "00001110",
+    "ringPattern": "110010100001",
+    "solution": "Rw' R2 U R' U R U2 R' U M'"
+  },
+  {
+    "id": "OLL12",
+    "topPattern": "00010011",
+    "ringPattern": "011100010100",
+    "solution": "Lw L2 U' L U' L' U2 L U' M'"
+  },
+  {
+    "id": "OLL13",
+    "topPattern": "00011100",
+    "ringPattern": "110000100011",
+    "solution": "F U R U' R2 F' R U R U' R'"
+  },
+  {
+    "id": "OLL14",
+    "topPattern": "00011001",
+    "ringPattern": "011100000110",
+    "solution": "R' F R U R' F' R y' R U' R'"
+  },
+  {
+    "id": "OLL15",
+    "topPattern": "00011001",
+    "ringPattern": "110001100010",
+    "solution": "Rw' U' Rw R' U' R U Rw' U Rw"
+  },
+  {
+    "id": "OLL16",
+    "topPattern": "00111000",
+    "ringPattern": "010100001110",
+    "solution": "Rw U Rw' R U R' U' Rw U' Rw'"
+  },
+  {
+    "id": "OLL17",
+    "topPattern": "10000001",
+    "ringPattern": "011011010010",
+    "solution": "R U R' U R' F R F' U2 R' F R F'"
+  },
+  {
+    "id": "OLL18",
+    "topPattern": "00100001",
+    "ringPattern": "010111010010",
+    "solution": "R U2 R2 F R F' U2 M' U R U' Rw'"
+  },
+  {
+    "id": "OLL19",
+    "topPattern": "10100000",
+    "ringPattern": "010011011010",
+    "solution": "M U R U R' U' M' R' F R F'"
+  },
+  {
+    "id": "OLL20",
+    "topPattern": "10100101",
+    "ringPattern": "010010010010",
+    "solution": "Rw U R' U' M2 U R U' R' U' M'"
+  },
+  {
+    "id": "OLL21",
+    "topPattern": "01011010",
+    "ringPattern": "101000000101",
+    "solution": "R U2 R' U' R U R' U' R U' R'"
+  },
+  {
+    "id": "OLL22",
+    "topPattern": "01011010",
+    "ringPattern": "001101000001",
+    "solution": "R U2 R2 U' R2 U' R2 U2 R"
+  },
+  {
+    "id": "OLL23",
+    "topPattern": "01011111",
+    "ringPattern": "101000000000",
+    "solution": "R2 D' R U2 R' D R U2 R"
+  },
+  {
+    "id": "OLL24",
+    "topPattern": "11111010",
+    "ringPattern": "000001001000",
+    "solution": "R' U' R' D' R U R' D R2"
+  },
+  {
+    "id": "OLL25",
+    "topPattern": "11011011",
+    "ringPattern": "000000100100",
+    "solution": "R U2 R D R' U2 R D' R2"
+  },
+  {
+    "id": "OLL26",
+    "topPattern": "11011010",
+    "ringPattern": "001000001100",
+    "solution": "R' U' R U' R' U2 R"
+  },
+  {
+    "id": "OLL27",
+    "topPattern": "01111010",
+    "ringPattern": "100001000001",
+    "solution": "L U L' U L U2 L'"
+  },
+  {
+    "id": "OLL28",
+    "topPattern": "11110101",
+    "ringPattern": "000000010010",
+    "solution": "Rw U R' U' M U R U' R'"
+  },
+  {
+    "id": "OLL29",
+    "topPattern": "01110001",
+    "ringPattern": "100000010110",
+    "solution": "R U R' U' R U' R' F' U' F R U R'"
+  },
+  {
+    "id": "OLL30",
+    "topPattern": "01010101",
+    "ringPattern": "000100110010",
+    "solution": "F R' F R2 U' R' U' R U R' F2"
+  },
+  {
+    "id": "OLL31",
+    "topPattern": "01101001",
+    "ringPattern": "100010000110",
+    "solution": "R' U' F U R U' R' F' R"
+  },
+  {
+    "id": "OLL32",
+    "topPattern": "00101011",
+    "ringPattern": "110010000100",
+    "solution": "R U2 R' U' F' U F R U' R'"
+  },
+  {
+    "id": "OLL33",
+    "topPattern": "00111001",
+    "ringPattern": "110000000110",
+    "solution": "R U R' U' R' F R F'"
+  },
+  {
+    "id": "OLL34",
+    "topPattern": "00011101",
+    "ringPattern": "010100100010",
+    "solution": "R U R2 U' R' F R U R U' F'"
+  },
+  {
+    "id": "OLL35",
+    "topPattern": "10001011",
+    "ringPattern": "010010100100",
+    "solution": "R U2 R2 F R F' R U2 R'"
+  },
+  {
+    "id": "OLL36",
+    "topPattern": "11001001",
+    "ringPattern": "001011000010",
+    "solution": "L' U' L U' L' U L U L F' L' F"
+  },
+  {
+    "id": "OLL37",
+    "topPattern": "11010001",
+    "ringPattern": "000000110110",
+    "solution": "F R U' R' U' R U R' F'"
+  },
+  {
+    "id": "OLL38",
+    "topPattern": "01110100",
+    "ringPattern": "100000011010",
+    "solution": "R U R' U R U' R' U' R' F R F'"
+  },
+  {
+    "id": "OLL39",
+    "topPattern": "00111100",
+    "ringPattern": "010100000011",
+    "solution": "R U R' F' U' F U R U2 R'"
+  },
+  {
+    "id": "OLL40",
+    "topPattern": "10011001",
+    "ringPattern": "011001000010",
+    "solution": "R' F R U R' U' F' U R"
+  },
+  {
+    "id": "OLL41",
+    "topPattern": "01010101",
+    "ringPattern": "101000010010",
+    "solution": "R U R' U R U2 R' F R U R' U' F'"
+  },
+  {
+    "id": "OLL42",
+    "topPattern": "10110010",
+    "ringPattern": "010000010101",
+    "solution": "R' U' R U' R' U2 R F R U R' U' F'"
+  },
+  {
+    "id": "OLL43",
+    "topPattern": "11110000",
+    "ringPattern": "000000010111",
+    "solution": "R' U' F' U F R"
+  },
+  {
+    "id": "OLL44",
+    "topPattern": "00101001",
+    "ringPattern": "010111000000",
+    "solution": "Fw R U R' U' Fw'"
+  },
+  {
+    "id": "OLL45",
+    "topPattern": "00111001",
+    "ringPattern": "010101000010",
+    "solution": "F R U R' U' F'"
+  },
+  {
+    "id": "OLL46",
+    "topPattern": "11000110",
+    "ringPattern": "000010111000",
+    "solution": "R' U' R' F R F' U R"
+  },
+  {
+    "id": "OLL47",
+    "topPattern": "01001000",
+    "ringPattern": "100010101110",
+    "solution": "F' L' U' L U L' U' L U F"
+  },
+  {
+    "id": "OLL48",
+    "topPattern": "01010000",
+    "ringPattern": "001101010011",
+    "solution": "F R U R' U' R U R' U' F'"
+  },
+  {
+    "id": "OLL49",
+    "topPattern": "01001000",
+    "ringPattern": "001111000011",
+    "solution": "Rw U' Rw2 U Rw2 U Rw2 U' Rw"
+  },
+  {
+    "id": "OLL50",
+    "topPattern": "00001010",
+    "ringPattern": "011111000001",
+    "solution": "Rw' U Rw2 U' Rw2 U' Rw2 U Rw'"
+  },
+  {
+    "id": "OLL51",
+    "topPattern": "00011000",
+    "ringPattern": "110000101110",
+    "solution": "F U R U' R' U R U' R' F'"
+  },
+  {
+    "id": "OLL52",
+    "topPattern": "01000010",
+    "ringPattern": "001111010001",
+    "solution": "R' F' U' F U' R U R' U R"
+  },
+  {
+    "id": "OLL53",
+    "topPattern": "00001010",
+    "ringPattern": "010111101000",
+    "solution": "Rw' U' R U' R' U R U' R' U2 Rw"
+  },
+  {
+    "id": "OLL54",
+    "topPattern": "01001000",
+    "ringPattern": "000111101010",
+    "solution": "Rw U R' U R U' R' U R U2 Rw'"
+  },
+  {
+    "id": "OLL55",
+    "topPattern": "00011000",
+    "ringPattern": "111000000111",
+    "solution": "R' F R U R U' R2 F' R2 U' R' U R U R'"
+  },
+  {
+    "id": "OLL56",
+    "topPattern": "00011000",
+    "ringPattern": "010101101010",
+    "solution": "Rw U Rw' U R U' R' U R U' R' Rw U' Rw'"
+  },
+  {
+    "id": "OLL57",
+    "topPattern": "10111101",
+    "ringPattern": "010000000010",
+    "solution": "R U R' U' M' U R U' Rw'"
+  }
+]
