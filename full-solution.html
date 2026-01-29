@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learn CFOP | Full Solution Helper</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/loader.css" />
+  <style>
+    .helper-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 14px;
+      align-items: start;
+    }
+    @media (max-width: 960px) {
+      .helper-grid { grid-template-columns: 1fr; }
+    }
+    .solution-step {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      background: var(--surface);
+      display: grid;
+      gap: 6px;
+    }
+    .solution-step h4 {
+      margin: 0;
+      font-size: 15px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .solution-moves {
+      font-family: 'Inconsolata', monospace;
+      font-weight: 700;
+      font-size: 16px;
+      word-break: break-word;
+      white-space: pre-wrap;
+    }
+    .case-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: color-mix(in srgb, var(--accent) 12%, transparent);
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--text);
+    }
+    .sample-scrambles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .sample-scrambles button {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: 10px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+    .sample-scrambles button:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 10px;
+      background: color-mix(in srgb, var(--accent) 14%, transparent);
+      border: 1px solid var(--border);
+      font-weight: 700;
+      color: var(--text);
+    }
+    .mini-list { margin: 8px 0 0; padding-left: 18px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div id="page-loader" class="page-loader" role="status" aria-live="polite" aria-label="Loading page">
+    <div class="loader-card">
+      <div class="loader-visual">
+        <svg viewBox="0 0 60 60" stroke="#6D7582" stroke-linejoin="round" aria-hidden="true">
+          <g id="loader-cube" fill="#fff">
+            <path id="loader-base"></path>
+            <path id="loader-lid"></path>
+          </g>
+        </svg>
+      </div>
+      <div class="loader-text">
+        <div>Loading the helper…</div>
+        <div class="loader-sub">Crunching CFOP partitions.</div>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Learn CFOP</span>
+      </div>
+      <ul class="nav-links">
+        <li><a data-nav-link href="index.html">Home</a></li>
+        <li><a data-nav-link href="cross.html">Cross</a></li>
+        <li><a data-nav-link href="f2l.html">F2L</a></li>
+        <li><a data-nav-link href="oll.html">OLL</a></li>
+        <li><a data-nav-link href="pll.html">PLL</a></li>
+        <li><a data-nav-link href="algorithm.html">Algorithm</a></li>
+        <li><a data-nav-link href="full-solution.html">Full Solution</a></li>
+        <li><a data-nav-link href="timer.html">Timer</a></li>
+      </ul>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+        <span aria-hidden="true">☀︎</span>
+        <span data-theme-label>Dark mode</span>
+      </button>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <section class="page-hero">
+      <div class="hero-panel">
+        <div class="pill">Full solution helper</div>
+        <h1>Predict every CFOP phase from any scramble.</h1>
+        <p class="lead">Paste a scramble, and we will forecast the Cross, each F2L pair, OLL, and PLL with total move count.</p>
+        <div class="hero-meta">
+          <span class="pill"><strong>4</strong> phases</span>
+          <span class="pill"><strong>CFOP</strong> orientation</span>
+          <span class="pill"><strong>Live</strong> breakdown</span>
+        </div>
+        <div class="button-row">
+          <a class="btn btn-primary" href="#helper">Open helper</a>
+          <a class="btn btn-ghost" href="algorithm.html">Back to library</a>
+        </div>
+      </div>
+      <div class="surface-card orientation-card">
+        <h3>How this works</h3>
+        <ul class="mini-list">
+          <li>Provide a space-separated scramble from solved state.</li>
+          <li>We run the CFOP solver (cross → 4 pairs → OLL → PLL).</li>
+          <li>Outputs are normalized to the site notation and tallied.</li>
+        </ul>
+        <p class="note" style="margin-top:8px;">Use standard face colors: U=Yellow, F=Green, R=Orange, D=White.</p>
+      </div>
+    </section>
+
+    <section id="helper" class="surface-card" style="margin-top: 12px;">
+      <div class="helper-grid">
+        <div>
+          <div class="pill">Scramble input</div>
+          <h2 class="section-title" style="margin: 6px 0 8px;">Paste or type your scramble</h2>
+          <p class="lead" style="margin: 0 0 10px;">We recommend WCA format with spaces (e.g., "R U R' U'").</p>
+
+          <label class="alg-search" style="width: 100%;">
+            <span>Scramble</span>
+            <input id="scramble-input" type="search" placeholder="R U R' U' F2 D2 L ..." aria-label="Scramble input" />
+          </label>
+
+          <div class="button-row" style="margin-top: 10px;">
+            <button class="btn btn-primary" type="button" id="analyze-btn">Analyze scramble</button>
+            <button class="btn btn-ghost" type="button" id="clear-btn">Clear</button>
+          </div>
+
+          <div class="sample-scrambles" aria-label="Sample scrambles">
+            <button type="button" data-scramble="R U R' U' F2 D2 L' U' R U2 R'">Sample A</button>
+            <button type="button" data-scramble="F R U R' U' F' L' U2 L U L' U L">Sample B</button>
+            <button type="button" data-scramble="y2 R' U2 R U R' U R F' R U R' U' R' F R2">Sample C</button>
+          </div>
+
+          <p class="note" style="margin-top: 12px;">Need a specific orientation? Add y / y' / y2 at the start of your scramble.</p>
+        </div>
+
+        <div>
+          <div class="pill">Predicted steps</div>
+          <div class="status" id="solution-status">Waiting for a scramble.</div>
+          <div id="step-results" class="f2l-lab" style="margin-top: 10px;"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/min2phase.js"></script>
+  <script src="js/rubiks-cube-solver.js"></script>
+  <script src="js/site.js" defer></script>
+  <script src="js/full-solution.js" defer></script>
+</body>
+</html>

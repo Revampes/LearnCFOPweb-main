@@ -3,6 +3,7 @@
   const animSection = document.getElementById('animation-section');
   const replayBtn = document.getElementById('anim-replay');
   const stepsContainer = document.getElementById('anim-steps');
+  const animDragArea = animCube ? animCube.closest('.board-wrap') : null;
 
   // Modal logic shared across pages that use f2l-animation
   const modal = document.getElementById('alg-modal');
@@ -35,6 +36,10 @@
 
   // New container for orientation
   let world = null;
+  let orbit = null;
+  let orbitRotX = -25;
+  let orbitRotY = -45;
+  let orbitDragInit = false;
 
   // Constants
   const FACES = ['u', 'f', 'r', 'd', 'l', 'b'];
@@ -61,6 +66,74 @@
   };
 
   const parseMoves = (solution = currentSolution) => solution.split(' ').filter((x) => x);
+
+  const updateOrbitRotation = () => {
+    if (!orbit) return;
+    orbit.style.transform = `rotateX(${orbitRotX}deg) rotateY(${orbitRotY}deg)`;
+  };
+
+  const setupOrbitDrag = () => {
+    if (!animDragArea || orbitDragInit) return;
+    orbitDragInit = true;
+
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+    let touchActive = false;
+
+    const beginDrag = (x, y) => {
+      isDragging = true;
+      startX = x;
+      startY = y;
+      if (animDragArea) animDragArea.style.cursor = 'grabbing';
+    };
+
+    const moveDrag = (x, y) => {
+      if (!isDragging) return;
+      const dx = x - startX;
+      const dy = y - startY;
+      orbitRotY += dx * 1.2;
+      orbitRotX -= dy * 1.2;
+      startX = x;
+      startY = y;
+      updateOrbitRotation();
+    };
+
+    const endDrag = () => {
+      isDragging = false;
+      touchActive = false;
+      if (animDragArea) animDragArea.style.cursor = 'grab';
+    };
+
+    animDragArea.style.cursor = 'grab';
+
+    animDragArea.addEventListener('mousedown', (e) => {
+      beginDrag(e.clientX, e.clientY);
+      e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', (e) => moveDrag(e.clientX, e.clientY));
+    document.addEventListener('mouseup', endDrag);
+
+    animDragArea.addEventListener('touchstart', (e) => {
+      const t = e.touches[0];
+      touchActive = true;
+      beginDrag(t.clientX, t.clientY);
+      e.preventDefault();
+    }, { passive: false });
+
+    document.addEventListener('touchmove', (e) => {
+      if (!touchActive) return;
+      const t = e.touches[0];
+      moveDrag(t.clientX, t.clientY);
+      e.preventDefault();
+    }, { passive: false });
+
+    document.addEventListener('touchend', () => {
+      if (!touchActive) return;
+      endDrag();
+    });
+  };
 
   // Note: we keep the full move list (including any conjugations like y/y') for animation playback.
   // The unsolved setup state is built by applying the inverse of the full move list, so orientation stays correct.
@@ -101,6 +174,14 @@
 
   const initWorld = () => {
     animCube.innerHTML = '';
+
+    orbit = document.createElement('div');
+    orbit.className = 'orbit-wrapper';
+    orbit.style.transformStyle = 'preserve-3d';
+    orbit.style.width = '100%';
+    orbit.style.height = '100%';
+    orbit.style.transition = 'transform 0.2s ease-out';
+    animCube.appendChild(orbit);
     
     world = document.createElement('div');
     world.className = 'world-pivot';
@@ -108,7 +189,7 @@
     world.style.width = '100%';
     world.style.height = '100%';
     world.style.transition = 'transform 0.5s ease';
-    animCube.appendChild(world);
+    orbit.appendChild(world);
 
     cubies.length = 0;
     for (let x = -1; x <= 1; x++) {
@@ -148,6 +229,8 @@
     }
 
     state = JSON.parse(JSON.stringify(solvedState)); // Deep copy
+
+    updateOrbitRotation();
   };
 
   // State Helpers (Logic from previous file)
@@ -888,6 +971,8 @@
       if (isAnimating || !currentSolution) return;
       fullAnimation();
   });
+
+  setupOrbitDrag();
 
   initWorld();
 

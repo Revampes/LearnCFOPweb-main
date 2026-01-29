@@ -162,17 +162,28 @@
     return '';
   };
 
-  const getNextAvailableType = (edgeIdx, currentTypeIdx) => {
+  const getAllowedTypesForEdge = (edgeIdx) => {
+    const edge = edges[edgeIdx];
+    const facesOnEdge = [edge.s1[0], edge.s2[0]];
+    const touchesSide = facesOnEdge.includes('L') || facesOnEdge.includes('R');
+    // Side pieces prioritize White-Red / White-Orange, but still allow all four
+    if (touchesSide) return [1, 3, 0, 2];
+    return [0, 1, 2, 3];
+  };
+
+  const getNextAvailableType = (edgeIdx, currentTypeIdx, allowedTypes = [0, 1, 2, 3]) => {
+    const allowed = Array.from(allowedTypes);
+
     // Collect used types excluding the current edge so orientation tweaks stay allowed
     const used = new Set();
     edgeAssignments.forEach((data, idx) => {
       if (idx !== edgeIdx) used.add(data.typeIdx);
     });
 
-    const free = [0, 1, 2, 3].filter((t) => !used.has(t));
+    const free = allowed.filter((t) => !used.has(t));
 
-    if (free.length === 0) return -1; // All four colors already placed elsewhere
-    if (currentTypeIdx === -1) return free[0];
+    if (free.length === 0) return -1; // No allowed colors left
+    if (currentTypeIdx === -1 || !allowed.includes(currentTypeIdx)) return free[0];
 
     const currIndex = free.indexOf(currentTypeIdx);
     if (currIndex === -1) return free[0]; // Current type was blocked; pick the first free
@@ -203,22 +214,24 @@
 
     const { edgeIdx, part } = info;
     
+    const allowedTypes = getAllowedTypesForEdge(edgeIdx);
+
     // Check if this edge is already assigned
     let current = edgeAssignments.get(edgeIdx);
     
     if (!current) {
       // New assignment: Start with WG, white at clicked part
-      const nextType = getNextAvailableType(edgeIdx, -1);
+      const nextType = getNextAvailableType(edgeIdx, -1, allowedTypes);
       if (nextType === -1) {
-        alert('All 4 white edges are already placed!');
+        const sideMsg = allowedTypes.length === 2 && allowedTypes.includes(1) && allowedTypes.includes(3);
+        alert(sideMsg ? 'Side pieces only allow White-Red or White-Orange. Clear one to reassign this edge.' : 'All white edge colors are already used.');
         return;
       }
       edgeAssignments.set(edgeIdx, { typeIdx: nextType, whitePart: part });
     } else {
       // Cycle type
-      const nextType = getNextAvailableType(edgeIdx, current.typeIdx);
+      const nextType = getNextAvailableType(edgeIdx, current.typeIdx, allowedTypes);
       if (nextType === -1) {
-        // No more types available, remove assignment
         edgeAssignments.delete(edgeIdx);
       } else {
         edgeAssignments.set(edgeIdx, { typeIdx: nextType, whitePart: part });
@@ -259,7 +272,7 @@
 
     // Update Next Piece Display
     if (nextPieceEl) {
-      const nextType = getNextAvailableType(-1);
+      const nextType = getNextAvailableType(-1, -1, [0, 1, 2, 3]);
       if (nextType === -1) {
         nextPieceEl.textContent = "All pieces placed";
         nextPieceEl.style.color = 'var(--muted)';
