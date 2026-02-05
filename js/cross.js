@@ -163,11 +163,8 @@
   };
 
   const getAllowedTypesForEdge = (edgeIdx) => {
-    const edge = edges[edgeIdx];
-    const facesOnEdge = [edge.s1[0], edge.s2[0]];
-    const touchesSide = facesOnEdge.includes('L') || facesOnEdge.includes('R');
-    // Side pieces prioritize White-Red / White-Orange, but still allow all four
-    if (touchesSide) return [1, 3, 0, 2];
+    // Return standard order regardless of position:
+    // 0:WG, 1:WO, 2:WB, 3:WR
     return [0, 1, 2, 3];
   };
 
